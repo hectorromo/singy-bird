@@ -1,0 +1,22 @@
+{
+  "name": "singy-bird",
+  "version": "1.0.0",
+  "description": "game inspired by flappy bird",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hectorromo/singy-bird.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hectorromo/singy-bird/issues"
+  },
+  "homepage": "https://github.com/hectorromo/singy-bird#readme",
+  "devDependencies": {
+    "two.js": "^0.5.0"
+  }
+}
