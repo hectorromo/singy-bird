@@ -7,40 +7,25 @@ var scene = document.getElementById('scene'),
 	
 two.appendTo(scene);
 
+var ground = two.makeRectangle(two.width/2, two.height-10, two.width, 20 );
 var birdie = new Bird(two);
 
-two.bind('update', function() {
-	var gravity = new Two.Vector(0, 0.1);
-	birdie.applyForce(gravity);
-	
+ground.fill = '#ccc';
+ground.noStroke();
 
+two.bind('update', function() {
+
+	// micLevel = mic.getLevel();
+	// console.log(micLevel)
+
+	var gravity = new Two.Vector(0, 0.2);
+	birdie.applyForce(gravity);
 
 	birdie.update();
-	birdie.edges();
+	birdie.edges(ground);
 	birdie.display();
-	// birdie.body.translation.y = gravity;
 
-	// document.onclick = function() {
-	// 	birdie.translation.y = birdie.flap;
-	// }
+	document.onclick = function() {
+		birdie.flap();
+	}
 });
-
-
-
-
-
-
-
-// ---- Make the bird rotate
-// bird.rotation = bird.rotation + rotation;
-// if ( bird.rotation > 2 || bird.rotation < -2) {
-// 	rotation = rotation * -1;
-// }	
-
-
-
-// ---- Make triangle function
-// function makeTriangle(size) {
-// 	var triangle = two.makePath(-size/2, 0, size/2, 0, 0, size+2);
-// 	return triangle;
-// }

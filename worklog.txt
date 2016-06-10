@@ -1,0 +1,14 @@
+A simple copy of flappy bird, but voice activated.
+
+* Collide: Detect the distance between birdie.body and ground(two.height)
+
+
+
+
+
+
+
+
+
+
+* Animate eyes: Make bird eyes jump up and down when flap.
