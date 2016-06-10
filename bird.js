@@ -10,8 +10,13 @@ function Bird(two) {
 
     this.eyes = two.makeGroup(this.eye1, this.eye2);
     this.body = two.makeGroup(this.head, this.stomach, this.beak, this.eyes);
+    this.body.translation.set( two.width/3, two.height/2 );
 
-    this.init = function() {
+    this.vel = new Two.Vector(0, 0);
+    this.acc = new Two.Vector(0, 0);
+
+
+    this.display = function() {
         this.head.fill = '#FFF78E';
         this.head.noStroke();
         this.eyes.fill = '#000';
@@ -22,23 +27,29 @@ function Bird(two) {
         this.beak.rotation = -1.5;
         this.beak.fill = '#FAC671';
         this.beak.noStroke();
-        this.initPosition();
     }
 
-    this.initPosition = function initPosition() {
-        this.body.translation.set( two.width/3, two.height/2 );
+    this.applyForce = function(force) {
+        this.acc = force;
     }
 
-    this.update = function update() {
-        
+    this.update = function() {
+        this.vel.addSelf(this.acc);
+        this.body.translation.addSelf(this.vel);
     }
 
-    this.flap = function flap() {
+    this.edges = function() {
+        if ( this.body.translation.x > two.height ) {
+            this.vel.y *= -1;
+            // this.body.translation.y = two.height;
+        }
+    }
+
+    // this.flap = function() {
       
-    }
+    // }
     
-    this.collide = function collide() {
+    // this.collide = function() {
       
-    }
-
+    // }
 }

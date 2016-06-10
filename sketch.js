@@ -1,22 +1,28 @@
-var gravity = 2,
-	scene = document.getElementById('scene'),
+var scene = document.getElementById('scene'),
 	two = new Two({
 		fullscreen: true,
 		type: Two.Types.svg,
 		autostart: true
-	}),
-	birdie = new Bird(two);
-
+	});
+	
 two.appendTo(scene);
-birdie.init();
 
+var birdie = new Bird(two);
 
 two.bind('update', function() {
-	birdie.body.translation.y = gravity;
+	var gravity = new Two.Vector(0, 0.1);
+	birdie.applyForce(gravity);
+	
 
-	document.onclick = function() {
-		// birdie.translation.y = birdie.flap;
-	}
+
+	birdie.update();
+	birdie.edges();
+	birdie.display();
+	// birdie.body.translation.y = gravity;
+
+	// document.onclick = function() {
+	// 	// birdie.translation.y = birdie.flap;
+	// }
 });
 
 
