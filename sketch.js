@@ -21,7 +21,7 @@ two.bind('update', function() {
 	// birdie.body.translation.y = gravity;
 
 	// document.onclick = function() {
-	// 	// birdie.translation.y = birdie.flap;
+	// 	birdie.translation.y = birdie.flap;
 	// }
 });
 
